@@ -1,6 +1,90 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SELC — Zakir Virani</title><link rel="stylesheet" href="styles.css"></head>
 <body><header><div class="wrap"><nav><a class="logo" href="index.html">ZAKIR VIRANI</a><ul><li><a href="index.html">Home</a></li><li><a class="active" href="selc.html">SELC</a></li><li><a href="dollars-sense.html">Dollars &amp; Sense</a></li><li><a href="https://zakirvirani.wordpress.com/">WordPress</a></li></ul></nav></div></header>
-<main class="wrap"><section class="hero"><h1>SELC</h1><p>Engineering and learning how I learn. Two projects: building with Arduino, and setting SMART goals.</p></section>
-<article class="post"><time>Sep 22, 2026</time><h2><a href="https://zakirvirani.wordpress.com/2026/09/22/introduction-to-arduino-physical-computing/">Intro to Arduino</a></h2><p>“To me my experience with the Arduino was great. The whole unit in the beginning was a little more difficult trying to learn about what all the pins do and how to connect components without breaking anything and especially figuring out how the code works.”</p><p><a href="https://zakirvirani.wordpress.com/2026/09/22/introduction-to-arduino-physical-computing/">Read the full post on WordPress →</a></p></article>
-<article class="post"><time>Sep 4, 2026</time><h2><a href="https://zakirvirani.wordpress.com/2026/09/04/smart-goals/">SMART Goals</a></h2><p>Setting goals that are specific, measurable, achievable, relevant, and time-bound — and using them to guide the work.</p><p><a href="https://zakirvirani.wordpress.com/2026/09/04/smart-goals/">Read the full post on WordPress →</a></p></article></main>
-<footer><div class="wrap"><a href="index.html">← Back home</a></div></footer></body></html>
+<main class="wrap">
+<section class="hero"><h1>SELC</h1><p>Engineering and learning how I learn. This page shows my best SELC work, with a summary and reflection for each artifact, so the reader can see what I did, what I learned, and why it shows achievement.</p></section>
+
+<article class="post artifact">
+<p class="label">Artifact 1 &middot; September 22, 2026 &middot; Engineering</p>
+<h2><a href="https://zakirvirani.wordpress.com/2026/09/22/introduction-to-arduino-physical-computing/">Intro to Arduino: Physical Computing</a></h2>
+<p><strong>Summary.</strong> An introduction to physical computing with Arduino. I built four circuits, each one doing something different while reusing the same ideas: setting pins, reading a sensor, and controlling an output. The four circuits are 1A Blink, 1B Potentiometer, 1C Photoresistor, and 1D RGB Night Light. The full post, with Tinkercad schematics for each circuit, is on WordPress.</p>
+<figure><figcaption>Figure 1A. Blink circuit — an LED on pin 13 turns on for 2 seconds, then off for 2 seconds.</figcaption><pre><code>void setup() {
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  digitalWrite(13, HIGH);
+  delay(2000);
+  digitalWrite(13, LOW);
+  delay(2000);
+}</code></pre></figure>
+<figure><figcaption>Figure 1B. Potentiometer circuit — the potentiometer reading on A0 sets the blink delay, so turning the knob changes the timing.</figcaption><pre><code>int potPosition;
+void setup() {
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  potPosition = analogRead(A0);
+  Serial.println(potPosition);
+  digitalWrite(13, HIGH);
+  delay(potPosition);
+  digitalWrite(13, LOW);
+  delay(potPosition);
+}</code></pre></figure>
+<figure><figcaption>Figure 1C. Photoresistor circuit — the LED turns on when the light reading falls below a threshold of 750.</figcaption><pre><code>int photoresistor = 0;
+int threshold = 750;
+void setup() {
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  photoresistor = analogRead(A0);
+  Serial.println(photoresistor);
+  if (photoresistor &lt; threshold) {
+    digitalWrite(13, HIGH);
+  } else {
+    digitalWrite(13, LOW);
+  }
+  delay(100);
+}</code></pre></figure>
+<figure><figcaption>Figure 1D. RGB Night Light circuit — a photoresistor turns the light on in the dark, and a potentiometer selects the colour: red, orange, yellow, green, cyan, blue, or magenta. The full code is in the WordPress post.</figcaption><pre><code>int photoresistor = 0;
+int potentiometer = 0;
+int threshold = 700;
+int RedPin = 9;
+int GreenPin = 10;
+int BluePin = 11;
+// In loop(): if the light reading is below
+// the threshold, the potentiometer reading
+// selects the colour; otherwise turnOff().</code></pre></figure>
+<h3>Reflection</h3>
+<blockquote><p>&ldquo;To me my experience with the Arduino was great. The whole unit in the beginning was a little more difficult trying to learn about what all the pins do and how to connect components without breaking anything and especially figuring out how the code works. But as we moved through the unit each circuit got easier as we went on each circuit made us do something different but having to do something similar as well which helped me understand what these chunks of code meant, also where components have to go to let the code control them and deliver power without causing a short circuit, also trying to troubleshoot issues like code format or component in the wrong pin and much more.&rdquo;</p></blockquote>
+<p><strong>Why this demonstrates achievement.</strong> Each circuit builds on the last: Blink teaches output and timing, the potentiometer adds analog input, the photoresistor adds a threshold decision, and the night light combines two inputs and three outputs. I learned to wire components so the code can control them and deliver power without causing a short circuit, and to troubleshoot when the code format was wrong or a component was in the wrong pin. That progression — from a single blinking LED to a light that senses darkness and lets me choose its colour — is the achievement.</p>
+<p><a href="https://zakirvirani.wordpress.com/2026/09/22/introduction-to-arduino-physical-computing/">Read the full post, with Tinkercad schematics, on WordPress &rarr;</a></p>
+</article>
+
+<article class="post artifact">
+<p class="label">Artifact 2 &middot; September 4, 2026 &middot; Learning and planning</p>
+<h2><a href="https://zakirvirani.wordpress.com/2026/09/04/smart-goals/">SMART Goals</a></h2>
+<p><strong>Summary.</strong> Goals written in the SMART format: Specific, Measurable, Achievable, Relevant, and Time-bound. The goals themselves are in the document below, shown exactly as written.</p>
+<figure><figcaption>Figure 2. SMART Goals document (Google Docs, embedded).</figcaption><iframe src="https://docs.google.com/document/d/e/2PACX-1vTQ7EDYFwq2cs1MH8oj2IeiXxOldHY0XHj4veN_tEjfwNN1T7uMALcPhOl-nw5smvqbBxvFXeYefsBX/pub?embedded=true" title="SMART Goals document" loading="lazy"></iframe></figure>
+<h3>Reflection</h3>
+<p><strong>Why this demonstrates achievement.</strong> Writing goals in SMART form means each goal has a clear target, a way to tell whether it is done, and a deadline. That is the planning skill behind the engineering work above: before building, I decide what success looks like and how I will know I reached it. The document in Figure 2 is the evidence — read the goals there, in my own words.</p>
+<p><a href="https://zakirvirani.wordpress.com/2026/09/04/smart-goals/">Read the full post on WordPress &rarr;</a></p>
+</article>
+
+<section class="post">
+<h2>How this page meets the PLTW E-Portfolio Rubric</h2>
+<table class="rubric"><thead><tr><th>Category</th><th>Exemplary (20&ndash;18 pts)</th><th>Evidence on this page</th></tr></thead><tbody>
+<tr><td>Posts</td><td>All posts and work samples are clearly and directly related to the purpose of the e-portfolio.</td><td>Both artifacts are SELC work: Arduino physical computing and SMART goals.</td></tr>
+<tr><td>Use of Multimedia</td><td>Documents, audio, video, graphics, and photographs are integrated seamlessly into all artifacts.</td><td>Figure 1A&ndash;1D code and schematics (linked), Figure 2 embedded SMART Goals document.</td></tr>
+<tr><td>Summary / Reflections</td><td>All summaries and reflections clearly describe why artifacts demonstrate achievement.</td><td>Each artifact has a Summary and a Reflection with a &ldquo;Why this demonstrates achievement&rdquo; paragraph.</td></tr>
+<tr><td>Ease of Navigation</td><td>All posts and artifacts are labeled, captioned, and titled correctly.</td><td>Artifacts are numbered and dated, figures are captioned, and the site navigation links Home, SELC, and Dollars &amp; Sense.</td></tr>
+<tr><td>Professionalism</td><td>No grammatical errors; always follows APA conventions.</td><td>References below follow APA format.</td></tr>
+</tbody></table>
+</section>
+
+<section class="post">
+<h2>References</h2>
+<p class="ref">Virani, Z. (2026, September 22). <em>Intro to Arduino: Physical computing</em>. Zakir Virani. https://zakirvirani.wordpress.com/2026/09/22/introduction-to-arduino-physical-computing/</p>
+<p class="ref">Virani, Z. (2026, September 4). <em>SMART goals</em>. Zakir Virani. https://zakirvirani.wordpress.com/2026/09/04/smart-goals/</p>
+</section>
+</main>
+<footer><div class="wrap"><a href="index.html">&larr; Back home</a> &nbsp;&middot;&nbsp; <a href="dollars-sense.html">Dollars &amp; Sense &rarr;</a></div></footer></body></html>

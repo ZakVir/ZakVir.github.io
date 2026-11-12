@@ -35,5 +35,10 @@ table.rubric{width:100%;border-collapse:collapse;font-size:15px;margin-top:12px}
 table.rubric th,table.rubric td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
 table.rubric th{background:#f7f7f7}
 .ref{font-size:15px}
+.crumb{margin:24px 0 0;font-size:15px}
+.crumb a{color:var(--muted);text-decoration:none}
+figure img{max-width:100%;border:1px solid var(--line);border-radius:12px}
+.artifact h1{font-size:40px;line-height:1.1;letter-spacing:-.02em;margin:0 0 16px}
+.artifact h2{font-size:22px;margin:28px 0 8px}
 footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:14px}
 footer a{color:var(--ink)}

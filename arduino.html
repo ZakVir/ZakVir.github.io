@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Intro to Arduino — SELC — Zakir Virani</title><link rel="stylesheet" href="styles.css"></head>
+<body><header><div class="wrap"><nav><a class="logo" href="index.html">ZAKIR VIRANI</a><ul><li><a href="index.html">Home</a></li><li><a class="active" href="selc.html">SELC</a></li><li><a href="dollars-sense.html">Dollars &amp; Sense</a></li><li><a href="https://zakirvirani.wordpress.com/">WordPress</a></li></ul></nav></div></header>
+<main class="wrap">
+<p class="crumb"><a href="selc.html">&larr; SELC</a></p>
+<article class="post artifact">
+<p class="label">Artifact 1 &middot; September 22, 2026 &middot; Engineering &middot; SELC</p>
+<h1>Intro to Arduino: Physical Computing</h1>
+<p><strong>Summary.</strong> An introduction to physical computing with Arduino. I built four circuits, each one doing something different while reusing the same ideas: setting pins, reading a sensor, and controlling an output. The four circuits are 1A Blink, 1B Potentiometer, 1C Photoresistor, and 1D RGB Night Light. The full post, with Tinkercad schematics for each circuit, is on WordPress.</p>
+<figure><figcaption>Figure 1A. Blink circuit — an LED on pin 13 turns on for 2 seconds, then off for 2 seconds.</figcaption><pre><code>void setup() {
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  digitalWrite(13, HIGH);
+  delay(2000);
+  digitalWrite(13, LOW);
+  delay(2000);
+}</code></pre></figure>
+<figure><figcaption>Figure 1B. Potentiometer circuit — the potentiometer reading on A0 sets the blink delay, so turning the knob changes the timing.</figcaption><pre><code>int potPosition;
+void setup() {
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  potPosition = analogRead(A0);
+  Serial.println(potPosition);
+  digitalWrite(13, HIGH);
+  delay(potPosition);
+  digitalWrite(13, LOW);
+  delay(potPosition);
+}</code></pre></figure>
+<figure><figcaption>Figure 1C. Photoresistor circuit — the LED turns on when the light reading falls below a threshold of 750.</figcaption><pre><code>int photoresistor = 0;
+int threshold = 750;
+void setup() {
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  photoresistor = analogRead(A0);
+  Serial.println(photoresistor);
+  if (photoresistor &lt; threshold) {
+    digitalWrite(13, HIGH);
+  } else {
+    digitalWrite(13, LOW);
+  }
+  delay(100);
+}</code></pre></figure>
+<figure><figcaption>Figure 1D. RGB Night Light circuit — a photoresistor turns the light on in the dark, and a potentiometer selects the colour: red, orange, yellow, green, cyan, blue, or magenta. The full code is in the WordPress post.</figcaption><pre><code>int photoresistor = 0;
+int potentiometer = 0;
+int threshold = 700;
+int RedPin = 9;
+int GreenPin = 10;
+int BluePin = 11;
+// In loop(): if the light reading is below
+// the threshold, the potentiometer reading
+// selects the colour; otherwise turnOff().</code></pre></figure>
+<h2>Reflection</h2>
+<blockquote><p>&ldquo;To me my experience with the Arduino was great. The whole unit in the beginning was a little more difficult trying to learn about what all the pins do and how to connect components without breaking anything and especially figuring out how the code works. But as we moved through the unit each circuit got easier as we went on each circuit made us do something different but having to do something similar as well which helped me understand what these chunks of code meant, also where components have to go to let the code control them and deliver power without causing a short circuit, also trying to troubleshoot issues like code format or component in the wrong pin and much more.&rdquo;</p></blockquote>
+<p><strong>Why this demonstrates achievement.</strong> Each circuit builds on the last: Blink teaches output and timing, the potentiometer adds analog input, the photoresistor adds a threshold decision, and the night light combines two inputs and three outputs. I learned to wire components so the code can control them and deliver power without causing a short circuit, and to troubleshoot when the code format was wrong or a component was in the wrong pin. That progression — from a single blinking LED to a light that senses darkness and lets me choose its colour — is the achievement.</p>
+<p><a href="https://zakirvirani.wordpress.com/2026/09/22/introduction-to-arduino-physical-computing/">Read the full post, with Tinkercad schematics, on WordPress &rarr;</a></p>
+<h2>Reference</h2>
+<p class="ref">Virani, Z. (2026, September 22). <em>Intro to Arduino: Physical computing</em>. Zakir Virani. https://zakirvirani.wordpress.com/2026/09/22/introduction-to-arduino-physical-computing/</p>
+</article>
+</main>
+<footer><div class="wrap"><a href="selc.html">&larr; Back to SELC</a> &nbsp;&middot;&nbsp; <a href="smart-goals.html">Next: SMART Goals &rarr;</a></div></footer></body></html>
